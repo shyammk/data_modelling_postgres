@@ -1,9 +1,10 @@
 
 # Sparkify Data Setup
 
+
 ## Introduction
 
-<p>This project is about analyzing the data on songs and user activity on the new music streaming app from Sparkify. The analytics team at Sparkify, is particularly interested in understanding what songs users are listening to. Currently, they don't have an easy way to query their data, which resides in a directory of JSON logs on user activity on the app, as well as a directory with JSON metadata on the songs in their app.<br>The data engineers need to create a postgres database with tables specifically designed to optimize queries on song play analysis. We will be creating a database schema, defining fact and dimension tables for a star schema for a particular analytic focus, and write an ETL pipeline that transfers data from files in two local directories into the tables in postgres, using Python and SQL.</p>
+<p>This project is about analyzing the data on songs and user activity on the new music streaming app from Sparkify. The analytics team at Sparkify, is particularly interested in understanding what songs users are listening to. Currently, they don't have an easy way to query their data, which resides in a directory of JSON logs on user activity on the app, as well as a directory with JSON metadata on the songs in their app. The data engineers are tasked with the creation of a postgres database with tables specifically designed to optimize queries on song play analysis. We will be creating a database schema, defining fact and dimension tables for a star schema for a particular analytic focus, and write an ETL pipeline that transfers data from files in two local directories into the tables in postgres, using Python and SQL.<br>This database would allow the business users to aggregate all the songs, artists, users and songplays at one place. Further down the line, Sparkify would be able to analyze the general popularity of songs or artists, popularity of songs and artists at specific geographic locations etc.</p>
 
     
 ## Datasets
@@ -24,8 +25,10 @@
 </ol>
 </p>
 
+
 ## Execution
 
- - Install the pre-requisites using the command <code>pip install -r pre_requisite_libraries.txt</code>.
+ - Note that you need to have a local version of PostgreSQL installed to create the required tables and execute this data pipeline, preferably V 13.4 and above.
+ - Install the required python libraries using the command <code>pip install -r pre_requisite_libraries.txt</code>.
  - Execute the script <code>create_tables.py</code> first, which uses the file <code>sql_queries.py</code> as input. This drops and creates the tables required, in case there is a need to reset them each time, before each the ETL scripts are run.
  - Next, execute the script <code>etl.py</code> which reads and processes the data files and loads them into the tables.
