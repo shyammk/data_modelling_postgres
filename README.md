@@ -4,7 +4,11 @@
 
 ## Introduction
 
+<<<<<<< HEAD
 <p>This project is about analyzing the data on songs and user activity on the new music streaming app from Sparkify. The analytics team at Sparkify, is particularly interested in understanding what songs users are listening to. Currently, they don't have an easy way to query their data, which resides in a directory of JSON logs on user activity on the app, as well as a directory with JSON metadata on the songs in their app. The data engineers are tasked with the creation of a postgres database with tables specifically designed to optimize queries on song play analysis. We will be creating a database schema, defining fact and dimension tables for a star schema for a particular analytic focus, and write an ETL pipeline that transfers data from files in two local directories into the tables in postgres, using Python and SQL.<br>This database would allow the business users to aggregate all the songs, artists, users and songplays at one place. Further down the line, Sparkify would be able to analyze the general popularity of songs or artists, popularity of songs and artists at specific geographic locations etc.</p>
+=======
+<p>This project is about analyzing the data on songs and user activity on the new music streaming app from Sparkify. The analytics team at Sparkify, is particularly interested in understanding what songs users are listening to. Currently, they don't have an easy way to query their data, which resides in a directory of JSON logs on user activity on the app, as well as a directory with JSON metadata on the songs in their app. The data engineers are tasked with the creation of a new postgres database with tables specifically designed to optimize queries on song play analysis. We will be creating a database schema, defining fact and dimension tables for a star schema for a particular analytic focus, and write an ETL pipeline that transfers data from files in two local directories into the tables in postgres, using Python and SQL.</p>
+>>>>>>> 7ec912fcf2e3b5194f871d66effa3f9ed811b606
 
     
 ## Datasets
