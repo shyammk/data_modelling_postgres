@@ -7,7 +7,7 @@
 
 This project is about analyzing the data on songs and user activity on the new music streaming app from Sparkify. The analytics team at Sparkify, is particularly interested in understanding what songs users are listening to. Currently, they don't have an easy way to query their data, which resides in a directory of JSON logs on user activity on the app, as well as a directory with JSON metadata on the songs in their app. The data engineers are tasked with the creation of a postgres database with tables specifically designed to optimize queries on song play analysis. We will be creating a database schema, defining fact and dimension tables for a star schema for a particular analytic focus, and write an ETL pipeline that transfers data from files in two local directories into the tables in postgres, using Python and SQL. This database would allow the business users to aggregate all the songs, artists, users and songplays at one place. Further down the line, Sparkify would be able to analyze the general popularity of songs or artists, popularity of songs and artists at specific geographic locations etc.
 
-    
+
 ## Datasets
 
 `Songs Dataset`: The first dataset is a subset of real data from the Million Song Dataset. Each file is in JSON format and contains metadata about a song and the artist of that song. The files are partitioned by the first three letters of each song's track ID.
@@ -49,10 +49,28 @@ The fact and dimension tables in our project can be represented as shown below.
  - Note that you need to have both Python (v3.7+) and a local version of PostgreSQL (preferably V13.4 & above) installed to create the required tables and execute this data pipeline.
  - Install the required python libraries using the command:
  `pip install -r pre_requisite_libraries.txt`.
- - Next, open the terminal or command prompt, navgigate to the `code` directory and execute the command: 
- `python create_tables.py` 
+ - Next, open the terminal or command prompt, navgigate to the `code` directory and execute the command:
+ `python create_tables.py`
  - Once the tables are created, execute the command:
  `python etl.py`
- 
+
 
 ## Validation
+
+ Some of the validation queries are listed below.
+
+ 1. `SELECT * FROM songplays WHERE artist_id IS NOT NULL and song_id IS NOT NULL;`
+
+ The above query should return only `1` result.
+
+ 2. Take count of records in all tables and the counts should look like below.
+
+ e.g.: `SELECT COUNT(0) FROM songsplay;`
+
+ | Table | Count |
+ | --- | ----------- |
+ | songsplay | 6820 |
+ | users | 96 |
+ | songs | 71 |
+ | artists | 69 |
+ | time | 6813 |
