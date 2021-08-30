@@ -89,7 +89,7 @@ def process_log_file(cur, filepath):
 
 
 def process_data(cur, conn, filepath, func):
-   """
+    """
     Description: This function lists the files in a directory, then executes 
     the data ingestion process for each file in the songs and logs datasets, 
     using the dedicated functions that transforms the values and finally, 
@@ -123,6 +123,17 @@ def process_data(cur, conn, filepath, func):
 
 
 def main():
+    """
+    Description: Function to establish the connection to sparkifydb, create  
+    the cursor object and invoke the process_data function with the respective 
+    filepaths for songs and logs data and finally close the connection.
+
+    Arguments:
+        None
+
+    Returns:
+        None
+    """
     conn = psycopg2.connect("host=127.0.0.1 dbname=sparkifydb user=student password=student")
     cur = conn.cursor()
 
