@@ -6,6 +6,19 @@ from sql_queries import *
 
 
 def process_song_file(cur, filepath):
+    """
+    Description: This function is responsible for processing the files in the 
+    songs datatset directory. It loads each file's contents into a pandas data 
+    frame, selects the required column values and then inserts them into the 
+    artists and songs tables.
+
+    Arguments:
+        cur: the cursor object.
+        filepath: song data file path.
+
+    Returns:
+        None
+    """
     # open song file
     df = pd.read_json(filepath, lines=True)
     
@@ -20,6 +33,19 @@ def process_song_file(cur, filepath):
 
 
 def process_log_file(cur, filepath):
+    """
+    Description: This function is responsible for processing the files in the 
+    log datatset directory. It loads each file's contents into a pandas data 
+    frame, selects and transforms the required column values and then inserts 
+    them into the tables, time, users and songplays.
+
+    Arguments:
+        cur: the cursor object.
+        filepath: log data file path.
+
+    Returns:
+        None
+    """
     # open log file
     df = pd.read_json(filepath, lines=True)
 
@@ -63,6 +89,21 @@ def process_log_file(cur, filepath):
 
 
 def process_data(cur, conn, filepath, func):
+   """
+    Description: This function lists the files in a directory, then executes 
+    the data ingestion process for each file in the songs and logs datasets, 
+    using the dedicated functions that transforms the values and finally, 
+    writes it to the database tables.
+
+    Arguments:
+        cur: the cursor object.
+        conn: connection to the database.
+        filepath: log data or song data file path.
+        func: function that transforms the data and inserts it into the database.
+
+    Returns:
+        None
+    """
     # get all files matching extension from directory
     all_files = []
     for root, dirs, files in os.walk(filepath):
